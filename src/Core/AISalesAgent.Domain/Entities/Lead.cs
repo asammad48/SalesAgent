@@ -1,5 +1,6 @@
 using AISalesAgent.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AISalesAgent.Domain.Entities;
 
@@ -51,6 +52,10 @@ public class Lead
     /// The user or system currently responsible for the lead (e.g., 'AI' or a human user's ID).
     /// </summary>
     public string AssignedTo { get; set; } = "AI";
+
+    public Guid? ServiceId { get; set; }
+    [ForeignKey("ServiceId")]
+    public virtual Service? Service { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
