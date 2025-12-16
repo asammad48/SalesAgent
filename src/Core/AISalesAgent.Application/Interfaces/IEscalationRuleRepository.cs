@@ -22,7 +22,7 @@ public interface IEscalationRuleRepository
     /// </summary>
     /// <returns>A collection of all escalation rule entities.</returns>
     Task<IEnumerable<EscalationRule>> GetAllAsync();
-    
+
     /// <summary>
     /// Retrieves all active escalation rules.
     /// </summary>

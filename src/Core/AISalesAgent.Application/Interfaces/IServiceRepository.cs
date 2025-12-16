@@ -22,7 +22,7 @@ public interface IServiceRepository
     /// </summary>
     /// <returns>A collection of all service entities.</returns>
     Task<IEnumerable<Service>> GetAllAsync();
-    
+
     /// <summary>
     /// Retrieves all active services.
     /// </summary>

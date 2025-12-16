@@ -22,7 +22,7 @@ public interface ICTARepository
     /// </summary>
     /// <returns>A collection of all CTA entities.</returns>
     Task<IEnumerable<CTA>> GetAllAsync();
-    
+
     /// <summary>
     /// Retrieves all active CTAs.
     /// </summary>

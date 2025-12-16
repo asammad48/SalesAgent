@@ -17,7 +17,7 @@ public interface IAIResponseRepository
     /// <param name="responseId">The ID of the AI response.</param>
     /// <returns>The AI response entity if found; otherwise, null.</returns>
     Task<AIResponse?> GetByIdAsync(Guid responseId);
-    
+
     /// <summary>
     /// Retrieves all AI responses associated with a specific timeline event.
     /// (Typically a one-to-one relationship).
