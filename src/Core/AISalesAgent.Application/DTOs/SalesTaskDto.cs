@@ -1,3 +1,5 @@
+using System;
+
 namespace AISalesAgent.Application.DTOs;
 
 public class SalesTaskDto

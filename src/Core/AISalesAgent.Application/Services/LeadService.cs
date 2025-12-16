@@ -35,7 +35,8 @@ public class LeadService : ILeadService
         {
             LeadId = Guid.NewGuid(),
             CompanyName = createLeadDto.CompanyName,
-            ContactPerson = createLeadDto.ContactPerson,
+            FirstName = createLeadDto.ContactPerson?.Split(' ')[0],
+            LastName = createLeadDto.ContactPerson?.Split(' ').Length > 1 ? string.Join(" ", createLeadDto.ContactPerson.Split(' ').Skip(1)) : null,
             Email = createLeadDto.Email,
             PhoneNumber = createLeadDto.PhoneNumber,
             Status = "New",
@@ -51,7 +52,7 @@ public class LeadService : ILeadService
         {
             Id = lead.LeadId,
             CompanyName = lead.CompanyName,
-            ContactPerson = lead.ContactPerson,
+            ContactPerson = $"{lead.FirstName} {lead.LastName}".Trim(),
             Email = lead.Email,
             PhoneNumber = lead.PhoneNumber,
             Status = lead.Status
@@ -65,23 +66,26 @@ public class LeadService : ILeadService
         {
             Id = lead.LeadId,
             CompanyName = lead.CompanyName,
-            ContactPerson = lead.ContactPerson,
+            ContactPerson = $"{lead.FirstName} {lead.LastName}".Trim(),
             Email = lead.Email,
             PhoneNumber = lead.PhoneNumber,
             Status = lead.Status
         });
     }
 
-    public async Task<LeadDto?> GetLeadByIdAsync(Guid id)
+    public async Task<LeadDto> GetLeadByIdAsync(Guid id)
     {
         var lead = await _leadRepository.GetByIdAsync(id);
-        if (lead == null) return null;
+        if (lead == null)
+        {
+            throw new NotFoundException(nameof(Lead), id);
+        }
 
         return new LeadDto
         {
             Id = lead.LeadId,
             CompanyName = lead.CompanyName,
-            ContactPerson = lead.ContactPerson,
+            ContactPerson = $"{lead.FirstName} {lead.LastName}".Trim(),
             Email = lead.Email,
             PhoneNumber = lead.PhoneNumber,
             Status = lead.Status
@@ -120,10 +124,11 @@ public class LeadService : ILeadService
             throw new NotFoundException(nameof(Service), assignServiceDto.ServiceId);
         }
 
-        // The key action is to create a new sales task for the initial outreach.
+        lead.ServiceId = assignServiceDto.ServiceId;
+        lead.UpdatedAt = DateTime.UtcNow;
+
         await _salesTaskOrchestrator.CreateTaskAsync(id.ToString(), "InitialOutreach");
 
-        lead.UpdatedAt = DateTime.UtcNow;
         await _unitOfWork.SaveChangesAsync();
     }
 }

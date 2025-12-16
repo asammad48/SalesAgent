@@ -37,6 +37,16 @@ public class ConfigurationService : IConfigurationService
         return services.Select(s => new ServiceDto { ServiceId = s.ServiceId, ServiceName = s.ServiceName, ServiceDescription = s.ServiceDescription, IsActive = s.IsActive });
     }
 
+    public async Task<ServiceDto> GetServiceByIdAsync(Guid id)
+    {
+        var service = await _serviceRepository.GetByIdAsync(id);
+        if (service == null)
+        {
+            throw new NotFoundException(nameof(Service), id);
+        }
+        return new ServiceDto { ServiceId = service.ServiceId, ServiceName = service.ServiceName, ServiceDescription = service.ServiceDescription, IsActive = service.IsActive };
+    }
+
     public async Task<ServiceDto> CreateServiceAsync(CreateServiceDto createServiceDto)
     {
         var service = new Service
@@ -57,14 +67,18 @@ public class ConfigurationService : IConfigurationService
         return pitches.Select(p => new ServicePitchDto { PitchId = p.PitchId, ServiceId = p.ServiceId, PitchType = p.PitchType, PitchTitle = p.PitchTitle, PitchText = p.PitchText });
     }
 
+    public async Task<ServicePitchDto> GetPitchByIdAsync(Guid id)
+    {
+        var pitch = await _pitchRepository.GetByIdAsync(id);
+        if (pitch == null)
+        {
+            throw new NotFoundException(nameof(ServicePitch), id);
+        }
+        return new ServicePitchDto { PitchId = pitch.PitchId, ServiceId = pitch.ServiceId, PitchType = pitch.PitchType, PitchTitle = pitch.PitchTitle, PitchText = pitch.PitchText };
+    }
+
     public async Task<ServicePitchDto> CreatePitchAsync(CreateServicePitchDto createServicePitchDto)
     {
-        var service = await _serviceRepository.GetByIdAsync(createServicePitchDto.ServiceId);
-        if (service == null)
-        {
-            throw new NotFoundException(nameof(Service), createServicePitchDto.ServiceId);
-        }
-
         var pitch = new ServicePitch
         {
             PitchId = Guid.NewGuid(),
@@ -82,6 +96,16 @@ public class ConfigurationService : IConfigurationService
     {
         var ctas = await _ctaRepository.GetAllAsync();
         return ctas.Select(c => new CtaDto { CTAId = c.CTAId, CTAText = c.CTAText, CTAType = c.CTAType, IsActive = c.IsActive });
+    }
+
+    public async Task<CtaDto> GetCtaByIdAsync(Guid id)
+    {
+        var cta = await _ctaRepository.GetByIdAsync(id);
+        if (cta == null)
+        {
+            throw new NotFoundException(nameof(CTA), id);
+        }
+        return new CtaDto { CTAId = cta.CTAId, CTAText = cta.CTAText, CTAType = cta.CTAType, IsActive = c.IsActive };
     }
 
     public async Task<CtaDto> CreateCtaAsync(CreateCtaDto createCtaDto)

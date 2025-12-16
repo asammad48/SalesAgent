@@ -1,15 +1,17 @@
 using AISalesAgent.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace AISalesAgent.WebAPI.Controllers;
 
 [ApiController]
 [Route("api/sales-tasks")]
-public class SalesTasksController : ControllerBase
+public class SalesTaskController : ControllerBase
 {
     private readonly ISalesTaskService _salesTaskService;
 
-    public SalesTasksController(ISalesTaskService salesTaskService)
+    public SalesTaskController(ISalesTaskService salesTaskService)
     {
         _salesTaskService = salesTaskService;
     }
@@ -25,10 +27,6 @@ public class SalesTasksController : ControllerBase
     public async Task<IActionResult> GetSalesTaskById(Guid id)
     {
         var task = await _salesTaskService.GetSalesTaskByIdAsync(id);
-        if (task == null)
-        {
-            return NotFound();
-        }
         return Ok(task);
     }
 
@@ -36,27 +34,27 @@ public class SalesTasksController : ControllerBase
     public async Task<IActionResult> StartTask(Guid id)
     {
         await _salesTaskService.StartTaskAsync(id);
-        return Ok();
+        return NoContent();
     }
 
     [HttpPost("{id}/pause")]
     public async Task<IActionResult> PauseTask(Guid id)
     {
         await _salesTaskService.PauseTaskAsync(id);
-        return Ok();
+        return NoContent();
     }
 
     [HttpPost("{id}/resume")]
     public async Task<IActionResult> ResumeTask(Guid id)
     {
         await _salesTaskService.ResumeTaskAsync(id);
-        return Ok();
+        return NoContent();
     }
 
     [HttpPost("{id}/cancel")]
     public async Task<IActionResult> CancelTask(Guid id)
     {
         await _salesTaskService.CancelTaskAsync(id);
-        return Ok();
+        return NoContent();
     }
 }

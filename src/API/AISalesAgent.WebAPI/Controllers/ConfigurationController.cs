@@ -1,11 +1,13 @@
 using AISalesAgent.Application.DTOs;
 using AISalesAgent.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace AISalesAgent.WebAPI.Controllers;
 
 [ApiController]
-[Route("api")]
+[Route("api/configuration")]
 public class ConfigurationController : ControllerBase
 {
     private readonly IConfigurationService _configurationService;
@@ -22,11 +24,18 @@ public class ConfigurationController : ControllerBase
         return Ok(services);
     }
 
+    [HttpGet("services/{id}")]
+    public async Task<IActionResult> GetServiceById(Guid id)
+    {
+        var service = await _configurationService.GetServiceByIdAsync(id);
+        return Ok(service);
+    }
+
     [HttpPost("services")]
     public async Task<IActionResult> CreateService([FromBody] CreateServiceDto createServiceDto)
     {
         var service = await _configurationService.CreateServiceAsync(createServiceDto);
-        return CreatedAtAction(nameof(GetServices), new { id = service.ServiceId }, service);
+        return CreatedAtAction(nameof(GetServiceById), new { id = service.ServiceId }, service);
     }
 
     [HttpGet("pitches")]
@@ -36,11 +45,18 @@ public class ConfigurationController : ControllerBase
         return Ok(pitches);
     }
 
+    [HttpGet("pitches/{id}")]
+    public async Task<IActionResult> GetPitchById(Guid id)
+    {
+        var pitch = await _configurationService.GetPitchByIdAsync(id);
+        return Ok(pitch);
+    }
+
     [HttpPost("pitches")]
     public async Task<IActionResult> CreatePitch([FromBody] CreateServicePitchDto createServicePitchDto)
     {
         var pitch = await _configurationService.CreatePitchAsync(createServicePitchDto);
-        return CreatedAtAction(nameof(GetPitches), new { id = pitch.PitchId }, pitch);
+        return CreatedAtAction(nameof(GetPitchById), new { id = pitch.PitchId }, pitch);
     }
 
     [HttpGet("ctas")]
@@ -50,11 +66,18 @@ public class ConfigurationController : ControllerBase
         return Ok(ctas);
     }
 
+    [HttpGet("ctas/{id}")]
+    public async Task<IActionResult> GetCtaById(Guid id)
+    {
+        var cta = await _configurationService.GetCtaByIdAsync(id);
+        return Ok(cta);
+    }
+
     [HttpPost("ctas")]
     public async Task<IActionResult> CreateCta([FromBody] CreateCtaDto createCtaDto)
     {
         var cta = await _configurationService.CreateCtaAsync(createCtaDto);
-        return CreatedAtAction(nameof(GetCtas), new { id = cta.CTAId }, cta);
+        return CreatedAtAction(nameof(GetCtaById), new { id = cta.CTAId }, cta);
     }
 
     [HttpGet("agent-settings")]

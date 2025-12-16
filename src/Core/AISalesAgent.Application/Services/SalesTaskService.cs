@@ -44,10 +44,13 @@ public class SalesTaskService : ISalesTaskService
         });
     }
 
-    public async Task<SalesTaskDto?> GetSalesTaskByIdAsync(Guid id)
+    public async Task<SalesTaskDto> GetSalesTaskByIdAsync(Guid id)
     {
         var t = await _salesTaskRepository.GetByIdAsync(id);
-        if (t == null) return null;
+        if (t == null)
+        {
+            throw new NotFoundException(nameof(SalesTask), id);
+        }
 
         return new SalesTaskDto
         {
@@ -64,37 +67,32 @@ public class SalesTaskService : ISalesTaskService
         };
     }
 
-    private async Task<SalesTask> GetTaskOrThrowAsync(Guid id)
-    {
-        var task = await _salesTaskRepository.GetByIdAsync(id);
-        if (task == null)
-        {
-            throw new NotFoundException(nameof(SalesTask), id);
-        }
-        return task;
-    }
-
     public async Task StartTaskAsync(Guid id)
     {
-        await GetTaskOrThrowAsync(id);
+        var task = await _salesTaskRepository.GetByIdAsync(id);
+        if (task == null) throw new NotFoundException(nameof(SalesTask), id);
         await _salesTaskOrchestrator.ExecuteNextStepAsync(id);
     }
 
     public async Task PauseTaskAsync(Guid id)
     {
-        await GetTaskOrThrowAsync(id);
+        var task = await _salesTaskRepository.GetByIdAsync(id);
+        if (task == null) throw new NotFoundException(nameof(SalesTask), id);
         await _salesTaskOrchestrator.PauseTaskAsync(id);
     }
 
     public async Task ResumeTaskAsync(Guid id)
     {
-        await GetTaskOrThrowAsync(id);
+        var task = await _salesTaskRepository.GetByIdAsync(id);
+        if (task == null) throw new NotFoundException(nameof(SalesTask), id);
         await _salesTaskOrchestrator.ResumeTaskAsync(id);
     }
 
     public async Task CancelTaskAsync(Guid id)
     {
-        var task = await GetTaskOrThrowAsync(id);
+        var task = await _salesTaskRepository.GetByIdAsync(id);
+        if (task == null) throw new NotFoundException(nameof(SalesTask), id);
+
         task.TaskState = TaskState.CANCELLED;
         await _unitOfWork.SaveChangesAsync();
     }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace AISalesAgent.WebAPI.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
-public class LeadsController : ControllerBase
+[Route("api/leads")]
+public class LeadController : ControllerBase
 {
     private readonly ILeadService _leadService;
 
-    public LeadsController(ILeadService leadService)
+    public LeadController(ILeadService leadService)
     {
         _leadService = leadService;
     }
@@ -35,10 +35,6 @@ public class LeadsController : ControllerBase
     public async Task<IActionResult> GetLeadById(Guid id)
     {
         var lead = await _leadService.GetLeadByIdAsync(id);
-        if (lead == null)
-        {
-            return NotFound();
-        }
         return Ok(lead);
     }
 
