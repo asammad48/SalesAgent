@@ -1,3 +1,4 @@
+using AISalesAgent.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace AISalesAgent.Domain.Entities;
@@ -39,7 +40,7 @@ public class Lead
     /// The specific stage in the sales pipeline (e.g., 'InitialContact', 'NeedsAnalysis').
     /// </summary>
     [Required]
-    public string SalesStage { get; set; } = "InitialContact";
+    public SalesStage SalesStage { get; set; } = SalesStage.NEW;
 
     /// <summary>
     /// A score indicating the quality or potential value of the lead.
@@ -56,5 +57,5 @@ public class Lead
 
     // Navigation properties for related data
     public virtual ICollection<SalesTask> SalesTasks { get; set; } = new List<SalesTask>();
-    public virtual ICollection<SalesTimeline> SalesTimelineEvents { get; set; } = new List<SalesTimeline>();
+    public virtual ICollection<SalesTimeline> TimelineEvents { get; set; } = new List<SalesTimeline>();
 }

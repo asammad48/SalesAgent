@@ -1,5 +1,5 @@
 using AISalesAgent.Domain.Entities;
-using System;
+using AISalesAgent.Domain.Enums;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -23,5 +23,5 @@ public interface ILeadRepository : IRepository<Lead>
     /// </summary>
     /// <param name="stage">The sales stage to filter by (e.g., "InitialContact").</param>
     /// <returns>A collection of leads in the specified stage.</returns>
-    Task<IEnumerable<Lead>> GetLeadsBySalesStageAsync(string stage);
+    Task<IEnumerable<Lead>> GetLeadsBySalesStageAsync(SalesStage stage);
 }

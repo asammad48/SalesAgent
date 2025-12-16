@@ -1,4 +1,5 @@
 using AISalesAgent.Domain.Entities;
+using AISalesAgent.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ public interface ISalesTaskRepository : IRepository<SalesTask>
     /// </summary>
     /// <param name="state">The state to filter by (e.g., 'PENDING', 'ESCALATED').</param>
     /// <returns>A collection of sales tasks in the specified state.</returns>
-    Task<IEnumerable<SalesTask>> GetTasksByStateAsync(string state);
+    Task<IEnumerable<SalesTask>> GetTasksByStateAsync(TaskState state);
 
     /// <summary>
     /// Retrieves all pending tasks whose scheduled execution time has passed.

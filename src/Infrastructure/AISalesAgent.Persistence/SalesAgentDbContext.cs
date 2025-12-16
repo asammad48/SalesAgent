@@ -92,7 +92,10 @@ namespace AISalesAgent.Infrastructure.Persistence
                 entity.HasIndex(e => e.Email).IsUnique();
                 entity.HasIndex(e => e.PhoneNumber).IsUnique();
                 entity.Property(e => e.Status).IsRequired().HasMaxLength(50);
-                entity.Property(e => e.SalesStage).IsRequired().HasMaxLength(50);
+                entity.Property(e => e.SalesStage)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasConversion<string>();
                 entity.Property(e => e.LeadScore).HasDefaultValue(0);
                 entity.Property(e => e.AssignedTo).HasDefaultValue("AI");
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
@@ -104,7 +107,10 @@ namespace AISalesAgent.Infrastructure.Persistence
                 entity.HasKey(e => e.TaskId);
                 entity.Property(e => e.TaskId).HasDefaultValueSql("NEWID()");
                 entity.Property(e => e.TaskType).IsRequired().HasMaxLength(100);
-                entity.Property(e => e.TaskState).IsRequired().HasMaxLength(50);
+                entity.Property(e => e.TaskState)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasConversion<string>();
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
 
                 entity.HasOne(st => st.Lead)

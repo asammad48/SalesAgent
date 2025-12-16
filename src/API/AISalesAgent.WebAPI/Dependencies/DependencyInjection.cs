@@ -1,6 +1,8 @@
 using AISalesAgent.Application.Interfaces;
+using AISalesAgent.Application.Services;
 using AISalesAgent.Infrastructure.Persistence;
 using AISalesAgent.Infrastructure.Persistence.Repositories;
+using AISalesAgent.Infrastructure.Providers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +30,18 @@ namespace AISalesAgent.WebAPI.Dependencies
             services.AddScoped<ISalesTimelineRepository, SalesTimelineRepository>();
             services.AddScoped<IServicePitchRepository, ServicePitchRepository>();
             services.AddScoped<IServiceRepository, ServiceRepository>();
+
+            services.AddScoped<IAIProvider, OpenAIProvider>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddApplication(this IServiceCollection services)
+        {
+            services.AddScoped<IPromptCompilerService, PromptCompilerService>();
+            services.AddScoped<ISalesStageEngine, SalesStageEngine>();
+            services.AddScoped<ISalesTaskOrchestrator, SalesTaskOrchestrator>();
+            services.AddScoped<IEscalationService, EscalationService>();
 
             return services;
         }

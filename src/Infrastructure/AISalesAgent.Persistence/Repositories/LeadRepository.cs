@@ -1,5 +1,6 @@
 using AISalesAgent.Application.Interfaces;
 using AISalesAgent.Domain.Entities;
+using AISalesAgent.Domain.Enums;
 using AISalesAgent.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,7 +23,7 @@ namespace AISalesAgent.Infrastructure.Persistence.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Lead>> GetLeadsBySalesStageAsync(string stage)
+        public async Task<IEnumerable<Lead>> GetLeadsBySalesStageAsync(SalesStage stage)
         {
             return await _context.Leads
                 .Where(l => l.SalesStage == stage)

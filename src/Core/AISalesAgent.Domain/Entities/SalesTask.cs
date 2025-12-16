@@ -1,3 +1,4 @@
+using AISalesAgent.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -28,7 +29,7 @@ public class SalesTask
     /// The current state of the task (e.g., 'PENDING', 'RUNNING', 'COMPLETED').
     /// </summary>
     [Required]
-    public string TaskState { get; set; } = "PENDING";
+    public TaskState TaskState { get; set; } = TaskState.PENDING;
 
     /// <summary>
     /// The time at which the task is scheduled to be executed.
