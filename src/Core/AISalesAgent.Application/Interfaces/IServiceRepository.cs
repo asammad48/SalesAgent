@@ -46,4 +46,11 @@ public interface IServiceRepository
     /// </summary>
     /// <param name="serviceId">The ID of the service to delete.</param>
     Task DeleteAsync(Guid serviceId);
+
+    /// <summary>
+    /// Retrieves a service by its name.
+    /// </summary>
+    /// <param name="name">The name of the service.</param>
+    /// <returns>The service entity if found; otherwise, null.</returns>
+    Task<Service?> FindByNameAsync(string name);
 }
