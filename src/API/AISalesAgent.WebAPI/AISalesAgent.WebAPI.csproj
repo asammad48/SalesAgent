@@ -12,4 +12,9 @@
     <ProjectReference Include="..\..\Infrastructure\AISalesAgent.Persistence\AISalesAgent.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.6" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.8.6" />
+  </ItemGroup>
+
 </Project>

@@ -20,6 +20,7 @@ namespace AISalesAgent.Infrastructure.Persistence
         public DbSet<SalesTimeline> SalesTimelines { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServicePitch> ServicePitches { get; set; }
+        public DbSet<ExecutionLog> ExecutionLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -117,6 +118,11 @@ namespace AISalesAgent.Infrastructure.Persistence
                     .WithMany(l => l.SalesTasks)
                     .HasForeignKey(st => st.LeadId)
                     .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasMany(st => st.ExecutionLogs)
+                    .WithOne(el => el.SalesTask)
+                    .HasForeignKey(el => el.SalesTaskId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<SalesTimeline>(entity =>
@@ -168,6 +174,13 @@ namespace AISalesAgent.Infrastructure.Persistence
                 entity.Property(e => e.IsActive).IsRequired().HasDefaultValue(true);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
                 entity.Property(e => e.UpdatedAt).HasDefaultValueSql("GETUTCDATE()");
+            });
+
+            modelBuilder.Entity<ExecutionLog>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasDefaultValueSql("NEWID()");
+                entity.Property(e => e.Timestamp).HasDefaultValueSql("GETUTCDATE()");
             });
         }
     }
