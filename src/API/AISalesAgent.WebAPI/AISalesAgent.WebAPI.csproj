@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\AISalesAgent.Application\AISalesAgent.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\AISalesAgent.Infrastructure\AISalesAgent.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\AISalesAgent.Persistence\AISalesAgent.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\AISalesAgent.Application\AISalesAgent.Application.csproj" />
+    <ProjectReference Include="..\..\Core\AISalesAgent.Domain\AISalesAgent.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

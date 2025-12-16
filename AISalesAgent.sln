@@ -1,0 +1,46 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AISalesAgent.WebAPI", "src\API\AISalesAgent.WebAPI\AISalesAgent.WebAPI.csproj", "{E1E2E4A8-5B6A-4D7C-8D4C-9F6D5C7B3A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AISalesAgent.Application", "src\Core\AISalesAgent.Application\AISalesAgent.Application.csproj", "{A2B3E8F3-1B5C-4F9A-8B7E-9E6D8E2A1B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AISalesAgent.Domain", "src\Core\AISalesAgent.Domain\AISalesAgent.Domain.csproj", "{C5D6B7A9-3C8E-4A6F-9E2D-7B9A3F1C8E3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AISalesAgent.Infrastructure", "src\Infrastructure\AISalesAgent.Infrastructure\AISalesAgent.Infrastructure.csproj", "{F8D9C0B1-4A7E-4B8C-9E2D-7B9A3F1C8E3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AISalesAgent.Persistence", "src\Infrastructure\AISalesAgent.Persistence\AISalesAgent.Persistence.csproj", "{D2E3F4A5-6B7C-8D9E-0F1A-2B3C4D5E6F7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1E2E4A8-5B6A-4D7C-8D4C-9F6D5C7B3A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E2E4A8-5B6A-4D7C-8D4C-9F6D5C7B3A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E2E4A8-5B6A-4D7C-8D4C-9F6D5C7B3A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E2E4A8-5B6A-4D7C-8D4C-9F6D5C7B3A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2B3E8F3-1B5C-4F9A-8B7E-9E6D8E2A1B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2B3E8F3-1B5C-4F9A-8B7E-9E6D8E2A1B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2B3E8F3-1B5C-4F9A-8B7E-9E6D8E2A1B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2B3E8F3-1B5C-4F9A-8B7E-9E6D8E2A1B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D6B7A9-3C8E-4A6F-9E2D-7B9A3F1C8E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D6B7A9-3C8E-4A6F-9E2D-7B9A3F1C8E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D6B7A9-3C8E-4A6F-9E2D-7B9A3F1C8E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D6B7A9-3C8E-4A6F-9E2D-7B9A3F1C8E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D9C0B1-4A7E-4B8C-9E2D-7B9A3F1C8E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D9C0B1-4A7E-4B8C-9E2D-7B9A3F1C8E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D9C0B1-4A7E-4B8C-9E2D-7B9A3F1C8E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D9C0B1-4A7E-4B8C-9E2D-7B9A3F1C8E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2E3F4A5-6B7C-8D9E-0F1A-2B3C4D5E6F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E3F4A5-6B7C-8D9E-0F1A-2B3C4D5E6F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E3F4A5-6B7C-8D9E-0F1A-2B3C4D5E6F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E3F4A5-6B7C-8D9E-0F1A-2B3C4D5E6F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
