@@ -1,5 +1,6 @@
 using AISalesAgent.Infrastructure.Persistence;
 using AISalesAgent.WebAPI.Dependencies;
+using AISalesAgent.WebAPI.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Hangfire;
 
@@ -41,6 +42,8 @@ if (app.Environment.IsDevelopment())
     app.UseHangfireDashboard();
     app.MapHangfireDashboard("/hangfire");
 }
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -7,6 +7,7 @@ namespace AISalesAgent.Domain.Enums
         WAITING_FOR_CLIENT,
         ESCALATED,
         COMPLETED,
-        FAILED
+        FAILED,
+        CANCELLED
     }
 }

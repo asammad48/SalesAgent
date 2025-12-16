@@ -1,6 +1,5 @@
 using AISalesAgent.Application.Interfaces;
 using AISalesAgent.Application.Services;
-using AISalesAgent.Core.Interfaces;
 using AISalesAgent.Infrastructure.Persistence;
 using AISalesAgent.Infrastructure.Persistence.Repositories;
 using AISalesAgent.Infrastructure.Providers;
@@ -45,6 +44,10 @@ namespace AISalesAgent.WebAPI.Dependencies
             services.AddScoped<IEscalationService, EscalationService>();
             services.AddScoped<ISalesTaskRunner, SalesTaskRunner>();
             services.AddScoped<ISalesTaskScheduler, SalesTaskScheduler>();
+            services.AddScoped<ILeadService, LeadService>();
+            services.AddScoped<ISalesTaskService, SalesTaskService>();
+            services.AddScoped<IAIControlService, AIControlService>();
+            services.AddScoped<IConfigurationService, ConfigurationService>();
 
             return services;
         }
