@@ -1,4 +1,5 @@
 using AISalesAgent.Domain.Enums;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -32,19 +33,24 @@ public class SalesTask
     public TaskState TaskState { get; set; } = TaskState.PENDING;
 
     /// <summary>
-    /// The time at which the task is scheduled to be executed.
+    /// The current step in a multi-step workflow.
     /// </summary>
-    public DateTime? ScheduledAt { get; set; }
+    public int CurrentStep { get; set; } = 0;
 
     /// <summary>
-    /// The time at which the task was completed.
+    /// The total number of steps in the workflow.
     /// </summary>
-    public DateTime? CompletedAt { get; set; }
+    public int TotalSteps { get; set; } = 1;
 
     /// <summary>
-    /// The time for the next action if the task is in a waiting state.
+    /// The time of the last execution attempt.
     /// </summary>
-    public DateTime? NextActionAt { get; set; }
+    public DateTime? LastExecutionAt { get; set; }
+
+    /// <summary>
+    /// The time for the next scheduled execution.
+    /// </summary>
+    public DateTime? NextExecutionAt { get; set; }
 
     /// <summary>
     /// A reason for task failure, if any.
@@ -55,4 +61,9 @@ public class SalesTask
 
     // Navigation property
     public virtual Lead? Lead { get; set; }
+
+    /// <summary>
+    /// Detailed logs of each execution step.
+    /// </summary>
+    public virtual ICollection<ExecutionLog> ExecutionLogs { get; set; } = new List<ExecutionLog>();
 }
