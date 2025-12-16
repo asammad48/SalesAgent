@@ -1,0 +1,169 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "AISalesAgent.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AISalesAgent.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AISalesAgent.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AISalesAgent.Application.dll": {}
+        }
+      },
+      "AISalesAgent.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/AISalesAgent.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AISalesAgent.Domain.dll": {}
+        }
+      },
+      "AISalesAgent.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AISalesAgent.Application": "1.0.0",
+          "AISalesAgent.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AISalesAgent.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AISalesAgent.Infrastructure.dll": {}
+        }
+      },
+      "AISalesAgent.Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AISalesAgent.Application": "1.0.0",
+          "AISalesAgent.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AISalesAgent.Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AISalesAgent.Persistence.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AISalesAgent.Application/1.0.0": {
+      "type": "project",
+      "path": "../../Core/AISalesAgent.Application/AISalesAgent.Application.csproj",
+      "msbuildProject": "../../Core/AISalesAgent.Application/AISalesAgent.Application.csproj"
+    },
+    "AISalesAgent.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../Core/AISalesAgent.Domain/AISalesAgent.Domain.csproj",
+      "msbuildProject": "../../Core/AISalesAgent.Domain/AISalesAgent.Domain.csproj"
+    },
+    "AISalesAgent.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Infrastructure/AISalesAgent.Infrastructure/AISalesAgent.Infrastructure.csproj",
+      "msbuildProject": "../../Infrastructure/AISalesAgent.Infrastructure/AISalesAgent.Infrastructure.csproj"
+    },
+    "AISalesAgent.Persistence/1.0.0": {
+      "type": "project",
+      "path": "../../Infrastructure/AISalesAgent.Persistence/AISalesAgent.Persistence.csproj",
+      "msbuildProject": "../../Infrastructure/AISalesAgent.Persistence/AISalesAgent.Persistence.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "AISalesAgent.Application >= 1.0.0",
+      "AISalesAgent.Infrastructure >= 1.0.0",
+      "AISalesAgent.Persistence >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\abdul.sammad\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Projects\\SalesAgent\\src\\API\\AISalesAgent.WebAPI\\AISalesAgent.WebAPI.csproj",
+      "projectName": "AISalesAgent.WebAPI",
+      "projectPath": "D:\\Projects\\SalesAgent\\src\\API\\AISalesAgent.WebAPI\\AISalesAgent.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\abdul.sammad\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\SalesAgent\\src\\API\\AISalesAgent.WebAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\abdul.sammad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "D:\\Projects\\SalesAgent\\src\\Core\\AISalesAgent.Application\\AISalesAgent.Application.csproj": {
+              "projectPath": "D:\\Projects\\SalesAgent\\src\\Core\\AISalesAgent.Application\\AISalesAgent.Application.csproj"
+            },
+            "D:\\Projects\\SalesAgent\\src\\Infrastructure\\AISalesAgent.Infrastructure\\AISalesAgent.Infrastructure.csproj": {
+              "projectPath": "D:\\Projects\\SalesAgent\\src\\Infrastructure\\AISalesAgent.Infrastructure\\AISalesAgent.Infrastructure.csproj"
+            },
+            "D:\\Projects\\SalesAgent\\src\\Infrastructure\\AISalesAgent.Persistence\\AISalesAgent.Persistence.csproj": {
+              "projectPath": "D:\\Projects\\SalesAgent\\src\\Infrastructure\\AISalesAgent.Persistence\\AISalesAgent.Persistence.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
