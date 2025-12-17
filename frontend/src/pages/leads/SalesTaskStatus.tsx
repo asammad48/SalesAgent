@@ -10,7 +10,7 @@ const SalesTaskStatus: React.FC = () => {
     <Card>
       <CardHeader>
         <CardTitle>Sales Task Status</CardTitle>
-      </Header>
+      </CardHeader>
       <CardContent>
         <Badge>{taskStatus}</Badge>
       </CardContent>
