@@ -1,0 +1,169 @@
+
+> temp-app@0.0.0 dev
+> vite
+
+
+  VITE v7.3.0  ready in 869 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+(!) Failed to run dependency scan. Skipping dependency pre-bundling. Error:   Failed to scan for dependencies from entries:
+  /app/frontend/index.html
+
+  [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mUnexpected closing "Header" tag does not match opening "CardHeader" tag[0m
+
+    src/pages/leads/SalesTaskStatus.tsx:13:8:
+[37m      13 │       </[32mHeader[37m>
+         │         [32m~~~~~~[37m
+         ╵         [32mCardHeader[0m
+
+  The opening "CardHeader" tag is here:
+
+    src/pages/leads/SalesTaskStatus.tsx:11:7:
+[37m      11 │       <[32mCardHeader[37m>
+         ╵        [32m~~~~~~~~~~[0m
+
+
+    at failureErrorWithLog (/app/frontend/node_modules/esbuild/lib/main.js:1467:15)
+    at /app/frontend/node_modules/esbuild/lib/main.js:926:25
+    at runOnEndCallbacks (/app/frontend/node_modules/esbuild/lib/main.js:1307:45)
+    at buildResponseToResult (/app/frontend/node_modules/esbuild/lib/main.js:924:7)
+    at /app/frontend/node_modules/esbuild/lib/main.js:936:9
+    at new Promise (<anonymous>)
+    at requestCallbacks.on-end (/app/frontend/node_modules/esbuild/lib/main.js:935:54)
+    at handleRequest (/app/frontend/node_modules/esbuild/lib/main.js:628:17)
+    at handleIncomingPacket (/app/frontend/node_modules/esbuild/lib/main.js:653:7)
+    at Socket.readFromStdout (/app/frontend/node_modules/esbuild/lib/main.js:581:7)
+5:46:05 AM [vite] (client) Pre-transform error: Cannot apply unknown utility class `border-border`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+  Plugin: @tailwindcss/vite:generate:serve
+  File: /app/frontend/src/index.css
+5:46:05 AM [vite] Internal server error: Cannot apply unknown utility class `border-border`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+  Plugin: @tailwindcss/vite:generate:serve
+  File: /app/frontend/src/index.css
+      at onInvalidCandidate (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:1314)
+      at Ce (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:16:36652)
+      at file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:355
+      at br (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:3:1718)
+      at I (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:3:1377)
+      at Ae (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:172)
+      at Wi (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:294)
+      at async Za (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:631)
+      at async rf (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:1406)
+      at async lu (file:///app/frontend/node_modules/@tailwindcss/node/dist/index.mjs:10:3458)
+      at async F.generate (file:///app/frontend/node_modules/@tailwindcss/vite/dist/index.mjs:1:4349)
+      at async TransformPluginContext.handler (file:///app/frontend/node_modules/@tailwindcss/vite/dist/index.mjs:1:2540)
+      at async EnvironmentPluginContainer.transform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28796:14)
+      at async loadAndTransform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:22669:26)
+      at async viteTransformMiddleware (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:24541:20)
+5:46:05 AM [vite] Internal server error: Failed to resolve import "@/pages/sales-tasks/SalesTasksPage" from "src/app/routes.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /app/frontend/src/app/routes.tsx:4:27
+  3  |  import DashboardLayout from "./layout/DashboardLayout";
+  4  |  import LeadsPage from "@/pages/leads/LeadsPage";
+  5  |  import SalesTasksPage from "@/pages/sales-tasks/SalesTasksPage";
+     |                              ^
+  6  |  import AiControlPage from "@/pages/ai-control/AiControlPage";
+  7  |  import ConfigurationPage from "@/pages/configuration/ConfigurationPage";
+      at TransformPluginContext._formatLog (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28998:43)
+      at TransformPluginContext.error (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28995:14)
+      at normalizeUrl (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:27118:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:27176:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:27144:4)
+      at async EnvironmentPluginContainer.transform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28796:14)
+      at async loadAndTransform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:22669:26)
+5:46:05 AM [vite] (client) Pre-transform error: Failed to resolve import "@/pages/sales-tasks/SalesTasksPage" from "src/app/routes.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /app/frontend/src/app/routes.tsx:4:27
+  3  |  import DashboardLayout from "./layout/DashboardLayout";
+  4  |  import LeadsPage from "@/pages/leads/LeadsPage";
+  5  |  import SalesTasksPage from "@/pages/sales-tasks/SalesTasksPage";
+     |                              ^
+  6  |  import AiControlPage from "@/pages/ai-control/AiControlPage";
+  7  |  import ConfigurationPage from "@/pages/configuration/ConfigurationPage";
+5:46:05 AM [vite] (client) Pre-transform error: /app/frontend/src/pages/leads/SalesTaskStatus.tsx: Expected corresponding JSX closing tag for <CardHeader>. (13:6)
+
+  11 |       <CardHeader>
+  12 |         <CardTitle>Sales Task Status</CardTitle>
+> 13 |       </Header>
+     |       ^
+  14 |       <CardContent>
+  15 |         <Badge>{taskStatus}</Badge>
+  16 |       </CardContent>
+  Plugin: vite:react-babel
+  File: /app/frontend/src/pages/leads/SalesTaskStatus.tsx:13:6
+  11 |        <CardHeader>
+  12 |          <CardTitle>Sales Task Status</CardTitle>
+  13 |        </Header>
+     |        ^
+  14 |        <CardContent>
+  15 |          <Badge>{taskStatus}</Badge>
+5:46:08 AM [vite] (client) ✨ new dependencies optimized: react-dom/client, react-router-dom, class-variance-authority, @radix-ui/react-label, @radix-ui/react-avatar, @radix-ui/react-slot, @radix-ui/react-dialog, lucide-react, clsx, tailwind-merge
+5:46:08 AM [vite] (client) ✨ optimized dependencies changed. reloading
+5:46:08 AM [vite] (client) Pre-transform error: Cannot apply unknown utility class `border-border`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+  Plugin: @tailwindcss/vite:generate:serve
+  File: /app/frontend/src/index.css
+5:46:08 AM [vite] (client) Pre-transform error: Failed to resolve import "@/pages/sales-tasks/SalesTasksPage" from "src/app/routes.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /app/frontend/src/app/routes.tsx:4:27
+  3  |  import DashboardLayout from "./layout/DashboardLayout";
+  4  |  import LeadsPage from "@/pages/leads/LeadsPage";
+  5  |  import SalesTasksPage from "@/pages/sales-tasks/SalesTasksPage";
+     |                              ^
+  6  |  import AiControlPage from "@/pages/ai-control/AiControlPage";
+  7  |  import ConfigurationPage from "@/pages/configuration/ConfigurationPage";
+5:46:08 AM [vite] Internal server error: Cannot apply unknown utility class `border-border`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+  Plugin: @tailwindcss/vite:generate:serve
+  File: /app/frontend/src/index.css
+      at onInvalidCandidate (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:1314)
+      at Ce (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:16:36652)
+      at file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:355
+      at br (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:3:1718)
+      at I (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:3:1377)
+      at Ae (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:172)
+      at Wi (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:294)
+      at async Za (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:631)
+      at async rf (file:///app/frontend/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:1406)
+      at async lu (file:///app/frontend/node_modules/@tailwindcss/node/dist/index.mjs:10:3458)
+      at async F.generate (file:///app/frontend/node_modules/@tailwindcss/vite/dist/index.mjs:1:4349)
+      at async TransformPluginContext.handler (file:///app/frontend/node_modules/@tailwindcss/vite/dist/index.mjs:1:2540)
+      at async EnvironmentPluginContainer.transform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28796:14)
+      at async loadAndTransform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:22669:26)
+      at async viteTransformMiddleware (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:24541:20)
+5:46:08 AM [vite] (client) Pre-transform error: /app/frontend/src/pages/leads/SalesTaskStatus.tsx: Expected corresponding JSX closing tag for <CardHeader>. (13:6)
+
+  11 |       <CardHeader>
+  12 |         <CardTitle>Sales Task Status</CardTitle>
+> 13 |       </Header>
+     |       ^
+  14 |       <CardContent>
+  15 |         <Badge>{taskStatus}</Badge>
+  16 |       </CardContent>
+  Plugin: vite:react-babel
+  File: /app/frontend/src/pages/leads/SalesTaskStatus.tsx:13:6
+  11 |        <CardHeader>
+  12 |          <CardTitle>Sales Task Status</CardTitle>
+  13 |        </Header>
+     |        ^
+  14 |        <CardContent>
+  15 |          <Badge>{taskStatus}</Badge>
+5:46:08 AM [vite] Internal server error: Failed to resolve import "@/pages/sales-tasks/SalesTasksPage" from "src/app/routes.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /app/frontend/src/app/routes.tsx:4:27
+  3  |  import DashboardLayout from "./layout/DashboardLayout";
+  4  |  import LeadsPage from "@/pages/leads/LeadsPage";
+  5  |  import SalesTasksPage from "@/pages/sales-tasks/SalesTasksPage";
+     |                              ^
+  6  |  import AiControlPage from "@/pages/ai-control/AiControlPage";
+  7  |  import ConfigurationPage from "@/pages/configuration/ConfigurationPage";
+      at TransformPluginContext._formatLog (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28998:43)
+      at TransformPluginContext.error (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28995:14)
+      at normalizeUrl (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:27118:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:27176:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:27144:4)
+      at async EnvironmentPluginContainer.transform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:28796:14)
+      at async loadAndTransform (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:22669:26)
+      at async viteTransformMiddleware (file:///app/frontend/node_modules/vite/dist/node/chunks/config.js:24541:20)
