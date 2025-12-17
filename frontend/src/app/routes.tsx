@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DashboardLayout from './layout/DashboardLayout';
 import LeadsPage from '@/pages/leads/LeadsPage';
-import SalesTasksPage from '@/pages/sales-tasks/SalesTasksPage';
+import SalesTasksPage from '@/pages/sales-tasks/SalesTaskMonitorPage';
 import AiControlPage from '@/pages/ai-control/AiControlPage';
 import ConfigurationPage from '@/pages/configuration/ConfigurationPage';
 import AnalyticsPage from '@/pages/analytics/AnalyticsPage';
